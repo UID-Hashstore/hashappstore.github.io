@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=320.1,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-title" content="骰宝">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+
+    <meta http-equiv="pragma" content="no-cache">
+
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+
+    <meta http-equiv="expires" content="-1, 26 Feb 1997 08:21:57 GMT">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="js/sha256.min.js"></script>
+    <script src="js/app.js"></script>
+    <title>骰宝</title>
+    <link href="css/app.css" rel="stylesheet">
+    <style type="text/css">
+        #app {
+            font-family: Avenir, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            color: #2c3e50;
+            height: 100%;
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .overflowHidden {
+            overflow: hidden !important
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0
+        }
+
+        input {
+            outline: none
+        }
+
+        h6, p {
+            margin: 0
+        }
+
+        .pdnone, h6, p {
+            padding: 0
+        }
+
+        .center {
+            width: 1100px;
+            margin: 0 auto
+        }
+
+        .betweenflex, .flex {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .betweenflex {
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between
+        }
+
+        .flex_start, .flex_start_v {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start
+        }
+
+        .flex_start_v {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .flex_end, .flex_end_v {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end
+        }
+
+        .flex_end_v {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .flex_between, .flex_between_v {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between
+        }
+
+        .flex_between_v {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .flex_around, .flex_around_v {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: distribute;
+            justify-content: space-around
+        }
+
+        .flex_around_v {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .flex_center {
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center
+        }
+
+        .flex_center, .vertical_v {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .vertical_v {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+
+        .weui-switch, .weui-switch-cp__box, .weui-switch-cp__box:before, .weui-switch:before {
+            width: 40px !important;
+            height: 20px !important
+        }
+
+        .weui-switch-cp__box:after, .weui-switch:after {
+            width: 20px !important;
+            height: 20px !important;
+            top: -1px !important
+        }</style>
+    <style type="text/css">.verification[data-v-feeb1c96] {
+        background: #fff;
+        margin: 0 auto;
+        padding: 10px;
+        width: 80%;
+        text-align: left
+    }
+
+    .verification .top[data-v-feeb1c96] {
+        font-size: 30px;
+        padding: 20px 0;
+        color: #333;
+        border-bottom: 1px solid #dbdbdb
+    }
+
+    .verification .top .info[data-v-feeb1c96] {
+        font-size: 20px;
+        color: #666
+    }
+
+    .verification .content[data-v-feeb1c96] {
+        padding: 30px 0;
+        font-size: 24px
+    }
+
+    .verification .content .line[data-v-feeb1c96] {
+        padding: 10px 0 6px;
+        border-bottom: 1px solid #dbdbdb
+    }
+
+    .verification .content .line label[data-v-feeb1c96] {
+        display: inline-block;
+        width: 18%
+    }
+
+    .verification .content .line span[data-v-feeb1c96] {
+        display: inline-block;
+        width: 80%;
+        vertical-align: middle;
+        word-break: break-all
+    }
+
+    .verification .content .line .fruit[data-v-feeb1c96] {
+        margin-left: 10px;
+        color: #ffb400
+    }
+
+    .verification .content .line .fruit img[data-v-feeb1c96] {
+        width: .6rem
+    }
+
+    .verification .content .btn[data-v-feeb1c96] {
+        margin-top: 20px;
+        font-size: 30px;
+        color: #fff;
+        width: 198px;
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+        background: #ff4547;
+        border-radius: 8px;
+        cursor: pointer
+    }
+
+    .verification .content.buff .line[data-v-feeb1c96] {
+        width: 100%;
+        border: none
+    }
+
+    .verification .content.buff .line label[data-v-feeb1c96] {
+        width: 100%
+    }
+
+    .verification .content.buff input[type=text][data-v-feeb1c96] {
+        width: 80%;
+        padding-left: 10px
+    }
+
+    .verification .content.buff input[type=text][data-v-feeb1c96], .verification .content .buffresult .line .conbox[data-v-feeb1c96] {
+        height: 40px;
+        line-height: 40px;
+        border-radius: 8px;
+        border: 1px solid #dbdbdb
+    }
+
+    .verification .content .buffresult .line .conbox .cardtype[data-v-feeb1c96] {
+        padding-left: 10px;
+        width: 70px;
+        line-height: 40px;
+        font-size: 24px
+    }
+
+    .verification .content .buffresult .line .conbox .cardtype img[data-v-feeb1c96] {
+        margin-right: 4px;
+        width: 30px;
+        vertical-align: sub
+    }
+
+    .verification .rules .title[data-v-feeb1c96] {
+        font-size: 24px;
+        font-weight: 700
+    }
+
+    .verification .rules .content[data-v-feeb1c96] {
+        margin: 0;
+        padding: 0;
+        padding-left: 10px
+    }
+
+    .verification .rules .content p[data-v-feeb1c96] {
+        font-size: 18px;
+        line-height: 40px
+    }</style>
+</head>
+<body style="font-size: 12px;">
+<div id="app">
+    <div data-v-feeb1c96="" class="verification">
+        <div data-v-feeb1c96="" class="top">
+            <div data-v-feeb1c96="" class="title">
+                骰宝 - Game Verification Script
+            </div>
+            <div data-v-feeb1c96="" class="info">
+                Third part script used to verify games on 骰宝
+            </div>
+        </div>
+        <div data-v-feeb1c96="">
+            <div data-v-feeb1c96="" class="content buff">
+                <div data-v-feeb1c96="" class="flex">
+                    <div data-v-feeb1c96="" class="line"><label data-v-feeb1c96="">哈希码(hash):</label>
+                        <div data-v-feeb1c96=""><input data-v-feeb1c96="" type="text" name="hash" id="hash"
+                                                       readonly="readonly"></div>
+                    </div>
+
+                </div>
+                <div data-v-feeb1c96="" class="flex">
+
+                    <div data-v-feeb1c96="" class="line"><label data-v-feeb1c96="">BOS签名种子(BOS seed):</label>
+                        <div data-v-feeb1c96=""><input data-v-feeb1c96="" type="text" name="bos_seed" id="bos_seed"
+                                                       readonly="readonly"></div>
+                    </div>
+
+                </div>
+                <div data-v-feeb1c96="" class="flex">
+                    <div data-v-feeb1c96="" class="line"><label data-v-feeb1c96="">随机种子(seed):</label>
+                        <div data-v-feeb1c96=""><input data-v-feeb1c96="" type="text" name="seed" id="seed"
+                                                       readonly="readonly"></div>
+                    </div>
+                </div>
+                <div data-v-feeb1c96="" class="btn" id="verify">
+                    Verify
+                </div>
+
+                <div data-v-feeb1c96="" class="buffresult">
+                    <div data-v-feeb1c96="" class="flex" id="res">
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+</div>
+</body>
+</html>
